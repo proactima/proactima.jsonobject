@@ -69,6 +69,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DescribeJsonObject.cs" />
+    <Compile Include="DescribeUXSerializer.cs" />
     <Compile Include="JsonFactory.cs" />
     <Compile Include="JsonObjectVerificationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

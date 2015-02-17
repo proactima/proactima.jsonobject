@@ -1,0 +1,17 @@
+﻿{
+    "id": "one_id",
+    "title": "fillio di puttana",
+    "e_unit_responsible_ids": {
+        "type": "unit",
+        "values": [
+            "195b2b7a-209a-4897-8b0f-31bb70533873"
+        ]
+    },
+    "e_assessment_location_ids": {
+        "type": "location",
+        "values": [
+            "dc18524d-f183-466a-a3a3-0a8c537e0d8d",
+			"ab18524d-f183-466a-a3a3-0a8c537e0d8d"
+        ]
+    }
+}

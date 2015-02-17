@@ -1,0 +1,18 @@
+﻿{
+    "id": "one_id",
+    "title": "fillio di puttana",
+    "a_risk_ids": {
+        "type": "risk",
+        "values": [
+            "1",
+            "2"
+        ]
+    },
+    "a_todo_ids": {
+        "type": "action",
+        "values": [
+            "1",
+            "2"
+        ]
+    }
+}

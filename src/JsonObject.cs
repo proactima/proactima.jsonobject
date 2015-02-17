@@ -5,9 +5,9 @@ using Newtonsoft.Json.Linq;
 
 namespace proactima.jsonobject
 {
-    [Serializable]
     public class JsonObject : Dictionary<string, object>
     {
+
         public JsonObject()
         {
         }
@@ -137,7 +137,10 @@ namespace proactima.jsonobject
                         json.Add(key, valuePair.Value.Value<DateTime>());
                         break;
                     default:
-                        json.Add(key, valuePair.Value.Value<string>()); // consider testing for byte size here!
+                        var value = valuePair.Value.Value<string>();
+                        if (String.IsNullOrEmpty(value))
+                            value = string.Empty;
+                        json.Add(key, value); // consider testing for byte size here!
                         break;
                 }
             }

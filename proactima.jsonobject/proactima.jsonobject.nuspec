@@ -17,6 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\proactima.jsonobject.*" target="lib\Portable-Win81+Wpa81" />
+    <file src="bin\Release\proactima.jsonobject.dll" target="lib\Portable-Win81+Wpa81" />
+    <file src="bin\Release\proactima.jsonobject.common.dll" target="lib\Portable-Win81+Wpa81" />
   </files>
 </package>

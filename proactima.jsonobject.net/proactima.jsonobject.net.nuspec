@@ -16,4 +16,7 @@
       <dependency id="Newtonsoft.Json" version="6.0"  />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\proactima.jsonobject.net.dll" target="lib\net451" />
+  </files>
 </package>

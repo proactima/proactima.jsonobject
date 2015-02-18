@@ -18,6 +18,6 @@
   </metadata>
   <files>
     <file src="proactima.jsonobject.net.dll" target="lib\net451" />
-    <file src="..\..\proactima.jsonobject.common\bin\Release\proactima.jsonobject.common.dll" target="lib\net451" />
+    <file src="..\..\..\proactima.jsonobject.common\bin\Release\proactima.jsonobject.common.dll" target="lib\net451" />
   </files>
 </package>

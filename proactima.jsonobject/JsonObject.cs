@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using proactima.jsonobject.common;
 
 namespace proactima.jsonobject
 {
-    public class JsonObject : Dictionary<string, object>
+    public partial class JsonObject : Dictionary<string, object>
     {
 
         public JsonObject()

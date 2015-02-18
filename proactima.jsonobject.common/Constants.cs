@@ -1,4 +1,4 @@
-﻿namespace proactima.jsonobject
+﻿namespace proactima.jsonobject.common
 {
     public static class Constants
     {

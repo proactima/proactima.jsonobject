@@ -1,4 +1,5 @@
 using System;
+using proactima.jsonobject.common;
 
 namespace proactima.jsonobject.tests
 {

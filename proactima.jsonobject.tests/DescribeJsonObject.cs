@@ -6,6 +6,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using proactima.jsonobject.common;
 
 namespace proactima.jsonobject.tests
 {

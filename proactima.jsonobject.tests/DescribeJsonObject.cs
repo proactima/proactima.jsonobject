@@ -2,43 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using proactima.jsonobject.common;
+using Xunit;
 
 namespace proactima.jsonobject.tests
 {
-    [TestClass]
     public class DescribeJsonObject
     {
-        [TestMethod]
-        public void ItCanInstantiate()
-        {
-            // g
-            // w
-            var json = new JsonObject();
 
-            // t
-            Assert.AreSame(json.Id, "0");
-        }
 
-        [TestMethod]
-        public void ItCanPopulate()
-        {
-            // g
-            // w
-            var json = new JsonObject
-            {
-                {"key", "value"}
-            };
-
-            // t
-            Assert.AreSame(json.GetStringValueOrEmpty("key"), "value");
-        }
-
-        [TestMethod]
+        [Fact]
         public void ItComplains_WhenCreatingJsonObject_GivenABogusStringAsInput()
         {
             // g
@@ -48,10 +24,10 @@ namespace proactima.jsonobject.tests
             Action act = () => JsonObject.Parse(content);
 
             // t
-            act.ShouldThrow<JsonReaderException>();
+            act.ShouldThrow<Newtonsoft.Json.JsonReaderException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItIsRootObject_GivenParentIdZero()
         {
             // g
@@ -64,7 +40,7 @@ namespace proactima.jsonobject.tests
             actual.Should().Be(true, "object is not root object");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldAlwaysHaveParentId()
         {
             // g
@@ -77,7 +53,7 @@ namespace proactima.jsonobject.tests
             actual.Should().Be("0", "Does not return parentId");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldAlwaysHaveParentType()
         {
             // g
@@ -90,7 +66,7 @@ namespace proactima.jsonobject.tests
             actual.Should().Be("", "does not return parenttype");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldAlwaysHaveValidParentId()
         {
             // g
@@ -103,7 +79,7 @@ namespace proactima.jsonobject.tests
             actual.Should().Be("0", "Does not return valid parentId");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldChangeValueOnElement_GivenValueIsArray()
         {
             // g
@@ -111,15 +87,16 @@ namespace proactima.jsonobject.tests
             const string fieldName = "entity_ids";
 
             // w
-            var json = new JsonObject {{fieldName, JArray.Parse(idstring)}};
+            var json = new JsonObject { { fieldName, JArray.Parse(idstring) } };
 
             // t
             var expectation = JArray.Parse(idstring).Select(t => t.ToObject<object>());
             json.GetList<object>(fieldName).ShouldBeEquivalentTo(expectation);
         }
 
+       
 
-        [TestMethod]
+        [Fact]
         public void ItShouldCreateChildren_GivenInputWithChildren()
         {
             // g
@@ -129,10 +106,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["children"].GetType().Should().Be(typeof (List<JsonObject>));
+            actual["children"].GetType().Should().Be(typeof(List<JsonObject>));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldCreateChildren_GivenInputWithChildrenOnMultipleLevels()
         {
             // g
@@ -142,10 +119,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            ((List<JsonObject>) actual["children"]).Last()["children"].GetType().Should().Be(typeof (List<JsonObject>));
+            ((List<JsonObject>)actual["children"]).Last()["children"].GetType().Should().Be(typeof(List<JsonObject>));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldCreateJsonObject_GivenAStringAsInput()
         {
             // g
@@ -158,7 +135,7 @@ namespace proactima.jsonobject.tests
             actual.ContainsKey("id").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldCreateString_GivenInputWithEmptyArray()
         {
             // g
@@ -168,10 +145,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["unit_ids"].GetType().Should().Be(typeof (object[]));
+            actual["unit_ids"].GetType().Should().Be(typeof(object[]));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldCreateString_GivenInputWithValueArray()
         {
             // g
@@ -181,11 +158,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["unit_ids"].GetType().Should().Be(typeof (object[]));
+            actual["unit_ids"].GetType().Should().Be(typeof(object[]));
         }
 
-
-        [TestMethod]
+        [Fact]
         public void ItShouldLowerCaseKeys_WhenAdding()
         {
             // g
@@ -199,19 +175,19 @@ namespace proactima.jsonobject.tests
             json.ContainsKey("one").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldLowerCaseKeys_WhenAddingRange()
         {
             // g
             var json = new JsonObject();
 
             // w
-            json.AddRange(new[] {new KeyValuePair<string, object>("ONE", "oneValue")});
+            json.AddRange(new[] { new KeyValuePair<string, object>("ONE", "oneValue") });
             // t
             json.ContainsKey("one").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldLowerCaseKeys_WhenAddingUsingIndex()
         {
             // g
@@ -224,17 +200,17 @@ namespace proactima.jsonobject.tests
             json.ContainsKey("one").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldLowerCaseKeys_WhenUsingObjectInit()
         {
             // w
-            var json = new JsonObject {{"ONE", "oneValue"}};
+            var json = new JsonObject { { "ONE", "oneValue" } };
 
             // t
             json.ContainsKey("one").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldMapFromJObject()
         {
             // g
@@ -247,7 +223,7 @@ namespace proactima.jsonobject.tests
             actual.ContainsKey("id").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldMapFromJObject_GivenArticleReferences()
         {
             // g
@@ -260,7 +236,7 @@ namespace proactima.jsonobject.tests
             JsonObjectVerificationHelper.VerifyJsonObject(actual, "a_risk_ids", "risk");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldMapFromJObject_GivenEntityReferences()
         {
             // g
@@ -273,7 +249,7 @@ namespace proactima.jsonobject.tests
             JsonObjectVerificationHelper.VerifyJsonObject(actual, "e_assessment_location_ids", "location");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldNotRemoveGeneratedReference_GivenYouWantToKeepThem()
         {
             // g
@@ -287,7 +263,7 @@ namespace proactima.jsonobject.tests
             actual.Keys.Any(k => k.StartsWith(Constants.GeneratedEntityPrefix)).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenBooleanInput()
         {
             // g
@@ -297,10 +273,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof (Boolean));
+            actual["id"].GetType().Should().Be(typeof(Boolean));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenDateTimeInput()
         {
             // g
@@ -311,10 +287,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["date_deadline"].GetType().Should().Be(typeof (DateTime));
+            actual["date_deadline"].GetType().Should().Be(typeof(DateTime));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenDecimalInput()
         {
             // g
@@ -325,10 +301,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["decimal"].GetType().Should().Be(typeof (decimal));
+            actual["decimal"].GetType().Should().Be(typeof(decimal));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenIntegerInput()
         {
             // g
@@ -338,10 +314,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof (long));
+            actual["id"].GetType().Should().Be(typeof(long));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenObjectInput()
         {
             // g
@@ -351,10 +327,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof (JsonObject));
+            actual["id"].GetType().Should().Be(typeof(JsonObject));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldPreserveDatatype_GivenStringInput()
         {
             // g
@@ -364,10 +340,10 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof (string));
+            actual["id"].GetType().Should().Be(typeof(string));
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldRemoveGeneratedArticleReference()
         {
             // g
@@ -380,7 +356,7 @@ namespace proactima.jsonobject.tests
             actual.ContainsKey("a_gen_a").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldRemoveGeneratedEntityReference()
         {
             // g
@@ -393,7 +369,7 @@ namespace proactima.jsonobject.tests
             actual.ContainsKey("e_gen_a").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldRemoveGeneratedReference()
         {
             // g
@@ -407,7 +383,7 @@ namespace proactima.jsonobject.tests
             actual.Keys.Any(k => k.StartsWith(Constants.GeneratedEntityPrefix)).Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldMapFromJObject_GivenNullProperty()
         {
             // g
@@ -422,7 +398,7 @@ namespace proactima.jsonobject.tests
             actual["action"].Should().Be(string.Empty);
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldRetainParentId()
         {
             // g
@@ -436,7 +412,27 @@ namespace proactima.jsonobject.tests
             actual.Should().Be(expected, "Does not retain parentId");
         }
 
-        [TestMethod]
+        [Fact]
+        public void ItShouldSerialize()
+        {
+            // g
+            var json =
+                JsonFactory.CreateMiniEntity();
+            var formatter = new BinaryFormatter();
+            var ms = new MemoryStream();
+
+            // w
+            formatter.Serialize(ms, json);
+
+            // t
+            ms.Position = 0;
+            var deserialized = (JsonObject)formatter.Deserialize(ms);
+
+            deserialized.Id.Should().NotBeEmpty();
+            deserialized.ShouldBeEquivalentTo(json);
+        }
+
+        [Fact]
         public void ItShouldVerifyKeyNotPresent()
         {
             // g
@@ -449,7 +445,7 @@ namespace proactima.jsonobject.tests
             hasKey.Should().BeFalse("Does not contain the key!");
         }
 
-        [TestMethod]
+        [Fact]
         public void ItShouldVerifyKeyPresent()
         {
             // g

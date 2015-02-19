@@ -13,6 +13,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.common", "proactima.jsonobject.common\proactima.jsonobject.common.csproj", "{35067CFA-570E-4C63-9707-F52B03FB5264}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2FBEF920-8152-432C-B0D4-F5F81A1CBEC4}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		proactima.jsonobject.nuspec = proactima.jsonobject.nuspec
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject", "proactima.jsonobject\proactima.jsonobject.csproj", "{FFEDF101-B6F6-460B-BFDE-6D4EB790E6D7}"
 EndProject

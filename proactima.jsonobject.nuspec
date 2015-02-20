@@ -17,12 +17,12 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.dll" target="lib\Portable-Win81+Wpa81" />
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.pdb" target="lib\Portable-Win81+Wpa81" />
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.xml" target="lib\Portable-Win81+Wpa81" />
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.dll" target="lib\Portable-Win81+Wpa81" />
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.pdb" target="lib\Portable-Win81+Wpa81" />
-    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.xml" target="lib\Portable-Win81+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.dll" target="lib\Portable-Win80+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.pdb" target="lib\Portable-Win80+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.xml" target="lib\Portable-Win80+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.dll" target="lib\Portable-Win80+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.pdb" target="lib\Portable-Win80+Wpa81" />
+    <file src="proactima.jsonobject\bin\Release\proactima.jsonobject.common.xml" target="lib\Portable-Win80+Wpa81" />
     <file src="proactima.jsonobject.net\bin\Release\proactima.jsonobject.net.dll" target="lib\net451" />
     <file src="proactima.jsonobject.net\bin\Release\proactima.jsonobject.net.pdb" target="lib\net451" />
     <file src="proactima.jsonobject.net\bin\Release\proactima.jsonobject.net.xml" target="lib\net451" />

@@ -301,16 +301,8 @@ namespace proactima.jsonobject
         public static string[] GetValuesFromObject(this JsonObject obj)
         {
             if (!obj.ContainsKey(Constants.ReferenceValues)) return new string[0];
-
-            var values = obj[Constants.ReferenceValues] as string[];
-
-            if (values != null)
-                return values;
-
-            var valuesAsIEnumerable = obj[Constants.ReferenceValues] as IEnumerable<string>;
-            return valuesAsIEnumerable != null
-                ? valuesAsIEnumerable.ToArray()
-                : new string[0];
+            var values = obj.GetList<string>(Constants.ReferenceValues).ToArray();
+            return values ?? new string[0];
         }
 
         /// <summary>
@@ -435,8 +427,12 @@ namespace proactima.jsonobject
                 return list;
 
             var enumerable = obj.GetValue(key) as IEnumerable<TOut>;
+            if (enumerable != null) return enumerable.ToList();
 
-            return enumerable == null ? new List<TOut>() : enumerable.ToList();
+            var objects = obj.GetValue(key) as object[];
+            return objects != null && objects.All(o => (o as TOut) != null)
+                ? objects.Select(o => o as TOut).ToList()
+                : new List<TOut>();
         }
 
         /// <summary>

@@ -12,8 +12,6 @@ namespace proactima.jsonobject.tests
 {
     public class DescribeJsonObject
     {
-
-
         [Fact]
         public void ItComplains_WhenCreatingJsonObject_GivenABogusStringAsInput()
         {
@@ -79,23 +77,7 @@ namespace proactima.jsonobject.tests
             actual.Should().Be("0", "Does not return valid parentId");
         }
 
-        [Fact]
-        public void ItShouldChangeValueOnElement_GivenValueIsArray()
-        {
-            // g
-            const string idstring = "[\"9\", \"8\"]";
-            const string fieldName = "entity_ids";
-
-            // w
-            var json = new JsonObject { { fieldName, JArray.Parse(idstring) } };
-
-            // t
-            var expectation = JArray.Parse(idstring).Select(t => t.ToObject<object>());
-            json.GetList<object>(fieldName).ShouldBeEquivalentTo(expectation);
-        }
-
        
-
         [Fact]
         public void ItShouldCreateChildren_GivenInputWithChildren()
         {
@@ -106,7 +88,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["children"].GetType().Should().Be(typeof(List<JsonObject>));
+            actual["children"].Should().BeOfType<List<JsonObject>>();
         }
 
         [Fact]
@@ -119,7 +101,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            ((List<JsonObject>)actual["children"]).Last()["children"].GetType().Should().Be(typeof(List<JsonObject>));
+            ((List<JsonObject>)actual["children"]).Last()["children"].Should().BeOfType<List<JsonObject>>();
         }
 
         [Fact]
@@ -145,7 +127,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["unit_ids"].GetType().Should().Be(typeof(object[]));
+            actual["unit_ids"].Should().BeOfType<object[]>();
         }
 
         [Fact]
@@ -158,7 +140,8 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["unit_ids"].GetType().Should().Be(typeof(object[]));
+            actual.GetList<string>("unit_ids").Should().HaveCount(3);
+
         }
 
         [Fact]
@@ -273,7 +256,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof(Boolean));
+            actual["id"].Should().BeOfType<Boolean>();
         }
 
         [Fact]
@@ -287,7 +270,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["date_deadline"].GetType().Should().Be(typeof(DateTime));
+            actual["date_deadline"].Should().BeOfType<DateTime>();
         }
 
         [Fact]
@@ -301,7 +284,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["decimal"].GetType().Should().Be(typeof(decimal));
+            actual["decimal"].Should().BeOfType<decimal>();
         }
 
         [Fact]
@@ -314,7 +297,7 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof(long));
+            actual["id"].Should().BeOfType<long>();
         }
 
         [Fact]
@@ -327,7 +310,8 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof(JsonObject));
+            actual["id"].Should().BeOfType<JsonObject>();
+
         }
 
         [Fact]
@@ -340,7 +324,8 @@ namespace proactima.jsonobject.tests
             var actual = JsonObject.FromJObject(json);
 
             // t
-            actual["id"].GetType().Should().Be(typeof(string));
+            actual["id"].Should().BeOfType<string>();
+
         }
 
         [Fact]

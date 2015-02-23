@@ -141,7 +141,7 @@ namespace proactima.jsonobject
                         var value = valuePair.Value.Value<string>();
                         if (String.IsNullOrEmpty(value))
                             value = string.Empty;
-                        json.Add(key, value); // consider testing for byte size here!
+                        json.Add(key, value);
                         break;
                 }
             }

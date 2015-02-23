@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject", "pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.net", "proactima.jsonobject.net\proactima.jsonobject.net.csproj", "{CA896DE5-FDB8-4D30-9FBC-1F45445286F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.tests", "proactima.jsonobject.tests\proactima.jsonobject.tests.csproj", "{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{CA896DE5-FDB8-4D30-9FBC-1F45445286F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA896DE5-FDB8-4D30-9FBC-1F45445286F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA896DE5-FDB8-4D30-9FBC-1F45445286F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

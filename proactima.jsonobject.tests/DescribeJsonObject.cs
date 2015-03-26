@@ -220,6 +220,20 @@ namespace proactima.jsonobject.tests
         }
 
         [Fact]
+        public void ItShouldMapFromJObject_GivenNullValues()
+        {
+            // g
+            var json = JObject.Parse(File.ReadAllText("JsonWithNull.json"));
+
+            // w
+            var actual = JsonObject.FromJObject(json);
+
+            // t
+            actual["disabled"].Should().BeNull();
+
+        }
+
+        [Fact]
         public void ItShouldMapFromJObject_GivenEntityReferences()
         {
             // g
@@ -380,7 +394,7 @@ namespace proactima.jsonobject.tests
 
             // t
             actual.Keys.Count.Should().Be(1);
-            actual["action"].Should().Be(string.Empty);
+            actual["action"].Should().Be(null);
         }
 
         [Fact]

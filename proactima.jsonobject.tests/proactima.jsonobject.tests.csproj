@@ -97,6 +97,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="JsonWithNull.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ArticleWithEntityReference.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

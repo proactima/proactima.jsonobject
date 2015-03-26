@@ -132,6 +132,8 @@ namespace proactima.jsonobject
         {
             switch (currentType.ToString().ToLowerInvariant())
             {
+                case "null":
+                    return null;
                 case "boolean":
                     return token.Value<Boolean>();
                 case "int32":

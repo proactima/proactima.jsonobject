@@ -96,7 +96,7 @@ namespace proactima.jsonobject
                 switch (type)
                 {
                     case "object":
-                        json.Add(key, FromJObject((JObject) valuePair.Value));
+                        json.Add(key, FromJObject((JObject)valuePair.Value, keepGeneratedContent));
                         break;
                     case "array":
                         var array = (JArray) valuePair.Value;
@@ -115,7 +115,7 @@ namespace proactima.jsonobject
                         }
                         else
                         {
-                            var children = (from JObject val in array select FromJObject(val)).ToList();
+                            var children = (from JObject val in array select FromJObject(val, keepGeneratedContent)).ToList();
                             json.Add(key, children);
                         }
                         break;

@@ -97,6 +97,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="JsonWithGeneratedStuff.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="JsonWithNull.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

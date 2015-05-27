@@ -258,6 +258,20 @@ namespace proactima.jsonobject.tests
             // t
             actual.Keys.Any(k => k.StartsWith(Constants.GeneratedArticlePrefix)).Should().BeTrue();
             actual.Keys.Any(k => k.StartsWith(Constants.GeneratedEntityPrefix)).Should().BeTrue();
+        }        
+        
+        [Fact]
+        public void ItShouldNotRemoveGeneratedReference()
+        {
+            // g
+            var json = JObject.Parse(File.ReadAllText("JsonWithGeneratedStuff.json"));
+
+            // w
+            var actual = JsonObject.FromJObject(json, true);
+
+            // t
+            actual.GetList<JsonObject>("workshops").First().Should().ContainKey("a_gen_invites_ids");
+
         }
 
         [Fact]

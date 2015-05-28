@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.net", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.tests", "proactima.jsonobject.tests\proactima.jsonobject.tests.csproj", "{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.pcl", "proactima.jsonobject.pcl\proactima.jsonobject.pcl.csproj", "{5790C7D3-EFC6-43B9-A940-598582AFE75C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FBF8F23-9D09-4BFF-ADDE-543B7A33B186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5790C7D3-EFC6-43B9-A940-598582AFE75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5790C7D3-EFC6-43B9-A940-598582AFE75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5790C7D3-EFC6-43B9-A940-598582AFE75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5790C7D3-EFC6-43B9-A940-598582AFE75C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

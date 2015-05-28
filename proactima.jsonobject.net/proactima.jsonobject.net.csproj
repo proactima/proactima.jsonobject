@@ -7,8 +7,8 @@
     <ProjectGuid>{CA896DE5-FDB8-4D30-9FBC-1F45445286F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>proactima.jsonobject.net</RootNamespace>
-    <AssemblyName>proactima.jsonobject.net</AssemblyName>
+    <RootNamespace>proactima.jsonobject</RootNamespace>
+    <AssemblyName>proactima.jsonobject</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\src\</SolutionDir>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\proactima.jsonobject.net.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\proactima.jsonobject.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

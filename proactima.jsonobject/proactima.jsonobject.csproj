@@ -36,18 +36,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\proactima.jsonobject.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="common\Constants.cs" />
+    <Compile Include="common\EnumerableExtensions.cs" />
     <Compile Include="JsonObject.cs" />
     <Compile Include="JsonObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\proactima.jsonobject.common\proactima.jsonobject.common.csproj">
-      <Project>{35067cfa-570e-4c63-9707-f52b03fb5264}</Project>
-      <Name>proactima.jsonobject.common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

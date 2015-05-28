@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
-using proactima.jsonobject.common;
 
 namespace proactima.jsonobject
 {

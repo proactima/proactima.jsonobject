@@ -34,7 +34,7 @@
     <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Portable-Win81+Wpa81\proactima.jsonobject.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\portable-net451+netcore451\proactima.jsonobject.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

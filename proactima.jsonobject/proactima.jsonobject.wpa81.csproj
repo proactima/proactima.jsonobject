@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="common\Constants.cs" />
+    <Compile Include="common\EnumerableExtensions.cs" />
     <Compile Include="JsonObject.cs" />
     <Compile Include="JsonObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

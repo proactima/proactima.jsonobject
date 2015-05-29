@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using proactima.jsonobject.common;
 
 namespace proactima.jsonobject.tests
 {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
+using proactima.jsonobject.common;
 using Xunit;
 
 namespace proactima.jsonobject.tests

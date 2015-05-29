@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\portable-net451+netcore451\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="common\Constants.cs" />
     <Compile Include="common\EnumerableExtensions.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="JsonObject.cs" />
     <Compile Include="JsonObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +51,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

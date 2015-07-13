@@ -55,6 +55,7 @@
     <Compile Include="common\EnumerableExtensions.cs" />
     <Compile Include="ImmutableJsonObject.cs" />
     <Compile Include="ImmutableJsonObjectExtentions.cs" />
+    <Compile Include="ImmutableJsonObjectPartial.cs" />
     <Compile Include="JsonObject.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,14 +5,25 @@ using System.Linq;
 
 namespace proactima.jsonobject
 {
-    public class ImmutableJsonObject : IReadOnlyDictionary<string, object>
+    public partial class ImmutableJsonObject : IReadOnlyDictionary<string, object>
     {
+        public ImmutableJsonObject()
+        {
+        }
+
         private static ImmutableJsonObject FromImmutable(
             IImmutableDictionary<string, object> dict)
         {
             return new ImmutableJsonObject(dict);
         }
         public static ImmutableJsonObject FromMutable(JsonObject obj)
+        {
+            var immutable = ImmutableDictionary(obj);
+
+            return new ImmutableJsonObject(immutable);
+        }
+
+        private static IImmutableDictionary<string, object> ImmutableDictionary(JsonObject obj)
         {
             var immutable = obj.ToImmutableDictionary();
             foreach (var k in immutable.Keys)
@@ -38,8 +49,7 @@ namespace proactima.jsonobject
                     immutable = SetList(asList, immutable, k);
                 }
             }
-
-            return new ImmutableJsonObject(immutable);
+            return immutable;
         }
 
         private ImmutableJsonObject(IImmutableDictionary<string, object> json)
@@ -55,7 +65,7 @@ namespace proactima.jsonobject
             return immutable;
         }
 
-        private readonly IImmutableDictionary<string, object> _json;
+        private IImmutableDictionary<string, object> _json;
 
         public object this[string key]
         {

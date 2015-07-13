@@ -87,9 +87,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DescribeImmutableJsonObject.cs" />
+    <Compile Include="DescribeImmutableJsonObjectSerialization.cs" />
     <Compile Include="DescribeJsonObject.cs" />
     <Compile Include="DescribeJsonObjectsExtensions.cs" />
-    <Compile Include="DescribeSerialization.cs" />
+    <Compile Include="DescribeJsonObjectSerialization.cs" />
     <Compile Include="JsonFactory.cs" />
     <Compile Include="JsonObjectVerificationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

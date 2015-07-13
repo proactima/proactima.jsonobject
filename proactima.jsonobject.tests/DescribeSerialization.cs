@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Xunit;
-
+using proactima.jsonobject;
 namespace proactima.jsonobject.tests
 {
     public class DescribeSerialization
@@ -24,7 +24,7 @@ namespace proactima.jsonobject.tests
 
             // w
             var actual = WcfTestHelper.DataContractSerializationRoundTrip(complexObject);
-
+            
             // t
             actual.GetList<JsonObject>("array").Should().HaveCount(2);
             actual.GetValuesFromReference("ref").Should().HaveCount(2);

@@ -6,7 +6,7 @@ using proactima.jsonobject.common;
 
 namespace proactima.jsonobject
 {
-    public partial class JsonObject : Dictionary<string, object>
+    public partial class JsonObject : Dictionary<string, object>, IReadOnlyDictionary<string, object>
     {
         public JsonObject()
         {

@@ -7,12 +7,38 @@ namespace proactima.jsonobject
 {
     public static class ImmutableJsonObjectExtentions
     {
-        public static ImmutableJsonObject CreateEntityReferenceField(this ImmutableJsonObject obj, string fieldName, string fieldType,
-    IEnumerable<string> fieldValues)
+        public static JsonObject ToMutable(this ImmutableJsonObject obj)
+        {
+            var result = new JsonObject();
+
+	        foreach (var kvp in obj)
+	        {
+				var o = kvp.Value as ImmutableJsonObject;
+		        if (o != null)
+		        {
+					result[kvp.Key] = o.ToMutable();
+					continue;
+		        }
+
+				var asList = kvp.Value as List<ImmutableJsonObject>;
+				if (asList != null)
+				{
+					result[kvp.Key] = asList.Select(imm => imm.ToMutable()).ToList();
+					continue;
+				}
+
+				result[kvp.Key] = kvp.Value;
+	        }
+
+            return result;
+        }
+
+        public static ImmutableJsonObject CreateEntityReferenceField(this ImmutableJsonObject obj, string fieldName,
+            string fieldType,
+            IEnumerable<string> fieldValues)
         {
             return obj.CreateGenericReferenceField(fieldName, fieldType, fieldValues, Constants.EntityPrefix);
         }
-
 
         /// <summary>
         /// Creates an article reference field with name, type and values. Overwrites existing field with same name
@@ -94,7 +120,6 @@ namespace proactima.jsonobject
             return SharedExtensions.GetValue<TOut>(obj, key);
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -130,7 +155,6 @@ namespace proactima.jsonobject
         {
             return SharedExtensions.GetNumberOrDefault(obj, key);
         }
-
 
         /// <summary>
         /// Returns values from reference.

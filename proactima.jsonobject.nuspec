@@ -18,5 +18,6 @@
   </metadata>
   <files>
     <file src="proactima.jsonobject\bin\Release\**\proactima.jsonobject*" target="lib" />
+    <file src="proactima.jsonobject\bin\Release\portable-net451+netcore451\proactima.jsonobject*" target="lib\portable46-net451+win81" />
   </files>
 </package>

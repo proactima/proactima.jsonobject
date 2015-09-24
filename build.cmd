@@ -14,7 +14,7 @@ if "%nuget%" == "" (
 	set nuget=".nuget\nuget.exe"
 )
 
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild proactima.jsonobject.sln /p:Configuration="%config%" /m /v:M /fl /flp:LogFile=msbuild.log;Verbosity=diag /nr:false
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild proactima.jsonobject.sln /p:Configuration="%config%" /m /v:M /fl /flp:LogFile=msbuild.log;Verbosity=diag /nr:false /p:VisualStudioVersion=14.0
 
 mkdir Build
 mkdir Build\lib

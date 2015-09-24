@@ -230,6 +230,33 @@ namespace proactima.jsonobject
                         new KeyValuePair<string, ImmutableJsonObject>(pair.Key, pair.Value as ImmutableJsonObject));
         }
 
+
+        /// <summary>
+        /// Returns IEnumerable of all Article reference fields
+        /// </summary>
+        public static IEnumerable<KeyValuePair<string, ImmutableJsonObject>> GetArticleReferences(this ImmutableJsonObject currentObject)
+        {
+            return GetReferenceFields(currentObject, Constants.ArticlePrefix);
+        }
+
+        /// <summary>
+        /// Returns IEnumerable of all Entity reference fields
+        /// </summary>
+        public static IEnumerable<KeyValuePair<string, ImmutableJsonObject>> GetEntityReferences(this ImmutableJsonObject currentObject)
+        {
+            return GetReferenceFields(currentObject, Constants.EntityPrefix);
+        }
+
+        private static IEnumerable<KeyValuePair<string, ImmutableJsonObject>> GetReferenceFields(
+            ImmutableJsonObject currentObject,
+            string prefix)
+        {
+            var query = currentObject
+                .GetReferenceFields()
+                .Where(kvp => kvp.Key.StartsWith(prefix));
+            return query;
+        }
+
         /// <summary>
         /// Get the value of a field or string.empty on missing key.
         /// </summary>

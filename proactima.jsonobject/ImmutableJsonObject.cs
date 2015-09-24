@@ -19,27 +19,60 @@ namespace proactima.jsonobject
             _json = json;
         }
 
-        public string Id => ContainsKey(Constants.Id)
-            ? this.GetStringValueOrEmpty(Constants.Id)
-            : Constants.NullId;
+        public string Id
+        {
+            get
+            {
+                return ContainsKey(Constants.Id)
+                    ? this.GetStringValueOrEmpty(Constants.Id)
+                    : Constants.NullId;
+            }
+        }
 
-        public string ParentId => ContainsKey(Constants.Parentid)
-            ? this.GetStringValueOrEmpty(Constants.Parentid)
-            : Constants.NullId;
+        public string ParentId
+        {
+            get
+            {
+                return ContainsKey(Constants.Parentid)
+                    ? this.GetStringValueOrEmpty(Constants.Parentid)
+                    : Constants.NullId;
+            }
+        }
 
-        public string ParentType => ContainsKey(Constants.ParentType)
-            ? this.GetStringValueOrEmpty(Constants.ParentType)
-            : string.Empty;
+        public string ParentType
+        {
+            get
+            {
+                return ContainsKey(Constants.ParentType)
+                    ? this.GetStringValueOrEmpty(Constants.ParentType)
+                    : string.Empty;
+            }
+        }
 
-        public bool IsRootObject => ParentId.Equals(Constants.NullId);
+        public bool IsRootObject
+        {
+            get { return ParentId.Equals(Constants.NullId); }
+        }
 
-        public object this[string key] => _json[key];
+        public object this[string key]
+        {
+            get { return _json[key]; }
+        }
 
-        public int Count => _json.Count;
+        public int Count
+        {
+            get { return _json.Count; }
+        }
 
-        public IEnumerable<string> Keys => _json.Keys;
+        public IEnumerable<string> Keys
+        {
+            get { return _json.Keys; }
+        }
 
-        public IEnumerable<object> Values => _json.Values;
+        public IEnumerable<object> Values
+        {
+            get { return _json.Values; }
+        }
 
 
         public bool ContainsKey(string key)

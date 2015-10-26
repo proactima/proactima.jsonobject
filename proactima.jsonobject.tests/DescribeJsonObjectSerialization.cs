@@ -13,7 +13,7 @@ namespace proactima.jsonobject.tests
         {
             var json = new JsonObject
             {
-                ["test"] = "1 < 2 > 1"
+                {"test", "1 < 2 > 1"}
             };
             var x = new XmlSerializer(typeof (JsonObject));
 

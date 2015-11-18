@@ -157,6 +157,19 @@ namespace proactima.jsonobject
         }
 
         /// <summary>
+        /// Gets a ulong from a JsonObject.
+        /// <para>The value being retrieved can be stored in the JsonObject as an int, long, ulong or string.</para>
+        /// <para>If the key is missing or the value is some other type, 0 is returned.</para>
+        /// </summary>
+        /// <param name="obj">The object you want to get the value from</param>
+        /// <param name="key">The key you want the value from</param>
+        /// <returns>Returns a ulong or 0 if key is missing</returns>
+        public static ulong GetULongOrDefault(this ImmutableJsonObject obj, string key)
+        {
+            return SharedExtensions.GetULongOrDefault(obj, key);
+        }
+
+        /// <summary>
         /// Returns values from reference.
         /// </summary>
         /// <param name="obj"></param>

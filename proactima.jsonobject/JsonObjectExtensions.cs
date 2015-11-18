@@ -183,28 +183,20 @@ namespace proactima.jsonobject
         /// <returns>Returns a long or 0 if key is missing</returns>
         public static long GetNumberOrDefault(this JsonObject obj, string key)
         {
-            var lowerKey = key.ToLowerInvariant();
-            const long defaultValue = default(long);
+            return SharedExtensions.GetNumberOrDefault(obj, key);
+        }
 
-            if (!obj.ContainsKey(lowerKey))
-                return defaultValue;
-
-            var value = obj[lowerKey];
-
-            if (value is int)
-                return (int) obj[lowerKey];
-
-            if (value is long)
-                return (long) obj[lowerKey];
-
-            if (value is string)
-            {
-                long parsedValue;
-                if (Int64.TryParse(value.ToString(), out parsedValue))
-                    return parsedValue;
-            }
-
-            return defaultValue;
+        /// <summary>
+        /// Gets a ulong from a JsonObject.
+        /// <para>The value being retrieved can be stored in the JsonObject as an int, long, ulong or string.</para>
+        /// <para>If the key is missing or the value is some other type, 0 is returned.</para>
+        /// </summary>
+        /// <param name="obj">The object you want to get the value from</param>
+        /// <param name="key">The key you want the value from</param>
+        /// <returns>Returns a ulong or 0 if key is missing</returns>
+        public static ulong GetULongOrDefault(this JsonObject obj, string key)
+        {
+            return SharedExtensions.GetULongOrDefault(obj, key);
         }
 
         /// <summary>

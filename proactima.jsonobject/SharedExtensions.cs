@@ -93,6 +93,35 @@ namespace proactima.jsonobject
             return defaultValue;
         }
 
+        internal static ulong GetULongOrDefault(IReadOnlyDictionary<string, object> obj, string key)
+        {
+            var lowerKey = key.ToLowerInvariant();
+            const ulong defaultValue = default(ulong);
+
+            if (!obj.ContainsKey(lowerKey))
+                return defaultValue;
+
+            var value = obj[lowerKey];
+
+            if (value is int)
+                return Convert.ToUInt64((int)obj[lowerKey]);
+
+            if (value is long)
+                return Convert.ToUInt64((long)obj[lowerKey]);
+
+            if (value is ulong)
+                return (ulong)obj[lowerKey];
+
+            if (value is string)
+            {
+                ulong parsedValue;
+                if (UInt64.TryParse(value.ToString(), out parsedValue))
+                    return parsedValue;
+            }
+
+            return defaultValue;
+        }
+
         internal static string[] GetValuesFromObject(IReadOnlyDictionary<string, object> obj)
         {
             if (!obj.ContainsKey(Constants.ReferenceValues)) return new string[0];

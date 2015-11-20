@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
-// ReSharper disable once CheckNamespace
-
 namespace proactima.jsonobject
 {
     [Serializable]
-    public partial class JsonObject : IXmlSerializable
+    public partial class ImmutableJsonObject : IXmlSerializable
     {
-        protected JsonObject(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-
         public void ReadXml(XmlReader reader)
         {
             var asEncoded = reader.ReadInnerXml();
@@ -31,11 +23,8 @@ namespace proactima.jsonobject
                 asString = asEncoded;
             }
 
-            var asJson = Parse(asString);
-            foreach (var kvp in asJson)
-            {
-                this[kvp.Key] = kvp.Value;
-            }
+            var asJson = JsonObject.Parse(asString);
+            _json = ImmutableDictionary(asJson);
         }
 
         public void WriteXml(XmlWriter writer)
@@ -44,7 +33,13 @@ namespace proactima.jsonobject
             writer.WriteRaw(base64Encoded);
         }
 
+
         XmlSchema IXmlSerializable.GetSchema()
+        {
+            return new XmlSchema();
+        }
+
+        public XmlSchema GetSchema()
         {
             return new XmlSchema();
         }

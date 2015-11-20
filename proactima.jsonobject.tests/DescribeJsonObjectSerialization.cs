@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
 using FluentAssertions;
@@ -6,11 +7,36 @@ using Xunit;
 
 namespace proactima.jsonobject.tests
 {
+    [DataContract]
+    public class Boo
+    {
+        [DataMember]
+        public ImmutableJsonObject Json { get; set; }
+    }
+
     public class DescribeJsonObjectSerialization
     {
         [Fact]
+        public void ItShouldSerializeAsBalls()
+        {
+            var json = new JsonObject
+            {
+                {"test", "1 < 2 > 1"}
+            };
+            var t = new Boo
+            {
+                Json = ImmutableJsonObject.FromMutable(json)
+            };
+            var actual = WcfTestHelper.DataContractSerializationRoundTrip(t);
+            actual.Json.GetStringValueOrEmpty("test").Should().Be("1 < 2 > 1");
+        }
+
+
+        [Fact]
         public void ItShouldSerializeAsBase64EncodedString()
         {
+
+
             var json = new JsonObject
             {
                 {"test", "1 < 2 > 1"}
@@ -25,6 +51,8 @@ namespace proactima.jsonobject.tests
             de["test"].Should().Be("1 < 2 > 1");
         }
 
+
+       
 
         [Fact]
         public void ItShouldDeserializeAsRawString()

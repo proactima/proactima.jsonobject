@@ -23,7 +23,7 @@ namespace proactima.jsonobject
                 asString = asEncoded;
             }
 
-            var asJson = JsonObject.Parse(asString);
+            var asJson = JsonObject.Parse(asString, true);
             _json = ImmutableDictionary(asJson);
         }
 

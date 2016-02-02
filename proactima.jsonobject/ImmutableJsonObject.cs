@@ -151,6 +151,11 @@ namespace proactima.jsonobject
             return FromImmutable(_json.Add(key, value));
         }
 
+        public ImmutableJsonObject Add(KeyValuePair<string, object> pair)
+        {
+            return FromImmutable(_json.Add(pair.Key, pair.Value));
+        }
+
         public ImmutableJsonObject AddRange(IEnumerable<KeyValuePair<string, object>> pairs)
         {
             return FromImmutable(_json.AddRange(pairs));

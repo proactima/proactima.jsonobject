@@ -19,17 +19,17 @@ namespace proactima.jsonobject.tests
 		public void ItCanConvertComplexImmutableToMutable()
 		{
 			var json = new JsonObject
-            {
-                {"title", "the title"},
-                {"array", new[] {new JsonObject {{"title", "sub1"}}, new JsonObject {{"title", "sub2"}}}},
-                {
-                    "ref", new JsonObject
-                    {
-                        {"type", "sometype"},
-                        {"values", new[] {"1", "2"}}
-                    }
-                },
-            };
+			{
+				{"title", "the title"},
+				{"array", new[] {new JsonObject {{"title", "sub1"}}, new JsonObject {{"title", "sub2"}}}},
+				{
+					"ref", new JsonObject
+					{
+						{"type", "sometype"},
+						{"values", new[] {"1", "2"}}
+					}
+				},
+			};
 
 			var immutable = ImmutableJsonObject.FromMutable(json);
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3A83F34E-8816-48DA-A478-737F422058AC}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.net", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proactima.jsonobject.wpa81", "proactima.jsonobject\proactima.jsonobject.wpa81.csproj", "{C2D1C9CA-0E2F-44AF-A430-99BB3861274B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proactima.jsonobject-standard", "proactima.jsonobject-standard\proactima.jsonobject-standard.csproj", "{8BAD1F9F-234C-459D-95A5-548C658B2221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{C2D1C9CA-0E2F-44AF-A430-99BB3861274B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2D1C9CA-0E2F-44AF-A430-99BB3861274B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2D1C9CA-0E2F-44AF-A430-99BB3861274B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BAD1F9F-234C-459D-95A5-548C658B2221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAD1F9F-234C-459D-95A5-548C658B2221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAD1F9F-234C-459D-95A5-548C658B2221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAD1F9F-234C-459D-95A5-548C658B2221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

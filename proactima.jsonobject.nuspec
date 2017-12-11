@@ -9,11 +9,12 @@
     <licenseUrl>http://uxrisk.com/license</licenseUrl>
     <projectUrl>http://uxrisk.com</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>All the shared code.</description>
+    <description>An abstraction over Dictionary of string and object. Allows one to work seamless with json data.</description>
     <releaseNotes>Pretty cool!</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <copyright>Copyright 2018 Proactima Solutions AS</copyright>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="7.0" />
+      <dependency id="Newtonsoft.Json" version="9.0" />
+      <dependency id="System.Collections.Immutable" version="1.4" />
     </dependencies>
   </metadata>
   <files>
